@@ -217,3 +217,12 @@ h3 { font-size: 1.55rem; color: var(--sea-dark); }
 .btn { font-size: .74rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 16px 28px; }
 .btn-small { font-size: .68rem; letter-spacing: .18em; padding: 10px 18px; }
 .link-btn { font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+
+/* ---------- Lighter body text (as Nomad Glamping) ---------- */
+:root { --ink-soft: #5b646b; }
+body { font-weight: 300; color: var(--ink-soft); line-height: 1.8; }
+h1, h2, h3 { color: var(--sea-dark); }
+.hero .lead { font-weight: 400; }
+.links a, .tabs button, .near li, .space-body li, .cal-legend { font-weight: 400; }
+.stats span, .cal-lead, .muted { color: var(--ink-soft); }
+.pets-note { font-weight: 400; }
