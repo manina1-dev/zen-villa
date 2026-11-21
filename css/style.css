@@ -231,3 +231,9 @@ h1, h2, h3 { color: var(--sea-dark); }
 body { font-weight: 200; color: #4f585f; }
 .hero .lead { font-weight: 300; }
 .pets-note { font-weight: 300; }
+
+/* ---------- Descriptions in the thin heading typeface ---------- */
+#about p:not(.eyebrow):not(.pets-note), #location p:not(.eyebrow), .book p:not(.eyebrow), .cal-lead, .space-body li {
+  font-family: var(--serif); font-weight: 300; font-size: 1.12rem; line-height: 1.75; color: #4a5359;
+}
+.space-body li { font-size: 1.04rem; }
