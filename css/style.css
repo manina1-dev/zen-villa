@@ -226,3 +226,8 @@ h1, h2, h3 { color: var(--sea-dark); }
 .links a, .tabs button, .near li, .space-body li, .cal-legend { font-weight: 400; }
 .stats span, .cal-lead, .muted { color: var(--ink-soft); }
 .pets-note { font-weight: 400; }
+
+/* ---------- Extra-light description text (thin like the headings) ---------- */
+body { font-weight: 200; color: #4f585f; }
+.hero .lead { font-weight: 300; }
+.pets-note { font-weight: 300; }
