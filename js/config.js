@@ -8,7 +8,7 @@ window.VILLA = {
 
   // Στοιχεία επικοινωνίας (αφήστε κενό "" για να κρυφτεί το κουμπί)
   phone: "+30 697 404 6224",
-  whatsapp: "",   // αριθμός για WhatsApp χωρίς + και κενά, π.χ. "306974046224" (κενό "" = κρυφό)
+  whatsapp: "306974046224",   // αριθμός για WhatsApp χωρίς + και κενά (κενό "" = κρυφό)
   email: "zenvillabookings@gmail.com",
   instagram: "https://www.instagram.com/zenvillaschinias/",
 

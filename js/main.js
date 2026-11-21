@@ -46,7 +46,7 @@
     "near.3": "Olympic Rowing Centre", "near.4": "Athens and the sights of Attica",
     "loc.address": "Faidras 11, Schinias, 19007 Attica, Greece", "loc.directions": "Get directions",
     "contact.eyebrow": "Booking & contact", "contact.title": "Ask us anything!",
-    "contact.lead": "See available dates and book securely through Airbnb. We're here to answer any question you have – send us an email or give us a call.",
+    "contact.lead": "See available dates and book securely through Airbnb. We're here to answer any question you have – send us a WhatsApp message, an email or give us a call.",
     "footer.addr": "Faidras 11, Schinias, 19007 Attica, Greece",
   };
 
