@@ -8,4 +8,6 @@
 
 ## Δημοσίευση (GitHub Pages)
 Settings → Pages → Source: *Deploy from a branch* → `main` και `/ (root)`.
-Για το domain `www.zenvilla.gr` (όταν φύγει από το Wix): προσθέτετε αρχείο `CNAME` με περιεχόμενο `www.zenvilla.gr` και στον πάροχο του domain εγγραφή CNAME `www` → `manina1-dev.github.io`.
+Domain: `www.zenvilla.gr` (αρχείο `CNAME`). DNS στο easy.gr (nameservers dns3/dns4.easy.gr):
+- A `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+- CNAME `www` → `manina1-dev.github.io`
