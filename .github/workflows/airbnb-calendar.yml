@@ -1,0 +1,36 @@
+name: Airbnb calendar sync
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # every 3 hours
+  workflow_dispatch:          # "Run workflow" button for a manual sync
+
+permissions:
+  contents: write
+
+concurrency:
+  group: airbnb-calendar
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update availability from Airbnb
+        env:
+          AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
+        run: python scripts/update_availability.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/availability.json; then
+            echo "Nothing to commit"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add data/availability.json
+          git commit -m "Update availability from Airbnb"
+          git push

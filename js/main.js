@@ -48,6 +48,10 @@
     "contact.eyebrow": "Booking & contact", "contact.title": "Ask us anything!",
     "contact.lead": "See available dates and book securely through Airbnb. We're here to answer any question you have – send us a WhatsApp message, an email or give us a call.",
     "footer.addr": "Faidras 11, Schinias, 19007 Attica, Greece",
+    "nav.availability": "Availability",
+    "cal.eyebrow": "Availability", "cal.title": "When the villa is free",
+    "cal.lead": "This calendar updates automatically from Airbnb. To confirm and book, check your dates on Airbnb.",
+    "cal.free": "Available", "cal.booked": "Booked", "cal.book": "Book on Airbnb",
   };
 
   const nodes = document.querySelectorAll("[data-i18n]");
@@ -62,6 +66,7 @@
     document.documentElement.lang = l;
     document.getElementById("langToggle").textContent = l === "en" ? "ΕΛ" : "EN";
     renderGallery();
+    renderCalendar();
     try { localStorage.setItem("lang", l); } catch (e) {}
   }
   document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "el" : "en"));
@@ -154,11 +159,71 @@
     tx = null;
   });
 
+
+  // ---------- Availability calendar (data/availability.json, synced from Airbnb) ----------
+  const calMonths = document.getElementById("calMonths");
+  const calPrev = document.getElementById("calPrev"), calNext = document.getElementById("calNext");
+  const calUpdated = document.getElementById("calUpdated");
+  const MAX_AHEAD = 12; // months shown ahead
+  let booked = [], updatedAt = null, offset = 0;
+  const iso = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const isBooked = (k) => booked.some(([s, e]) => k >= s && k < e); // nights: check-out day stays free
+  function perView() { return window.matchMedia("(max-width: 960px)").matches ? 1 : 2; }
+  function renderCalendar() {
+    if (!calMonths) return;
+    const loc = lang === "en" ? "en-GB" : "el-GR";
+    const now = new Date(); const todayKey = iso(now);
+    const n = perView();
+    offset = Math.max(0, Math.min(offset, MAX_AHEAD - n));
+    calPrev.disabled = offset === 0; calNext.disabled = offset >= MAX_AHEAD - n;
+    const dows = [];
+    for (let i = 0; i < 7; i++) dows.push(new Date(2024, 0, 1 + i).toLocaleDateString(loc, { weekday: "short" })); // Mon..Sun
+    calMonths.innerHTML = "";
+    for (let m = 0; m < n; m++) {
+      const first = new Date(now.getFullYear(), now.getMonth() + offset + m, 1);
+      const box = document.createElement("div"); box.className = "cal-month";
+      const h = document.createElement("h3");
+      h.textContent = first.toLocaleDateString(loc, { month: "long", year: "numeric" });
+      const grid = document.createElement("div"); grid.className = "cal-grid";
+      dows.forEach((w) => { const c = document.createElement("div"); c.className = "dow"; c.textContent = w.replace(".", ""); grid.appendChild(c); });
+      const lead = (first.getDay() + 6) % 7;
+      for (let i = 0; i < lead; i++) grid.appendChild(document.createElement("div"));
+      const days = new Date(first.getFullYear(), first.getMonth() + 1, 0).getDate();
+      for (let d = 1; d <= days; d++) {
+        const k = iso(new Date(first.getFullYear(), first.getMonth(), d));
+        const c = document.createElement("div"); c.className = "d"; c.textContent = d;
+        if (k < todayKey) c.classList.add("past");
+        else if (isBooked(k)) { c.classList.add("booked"); c.title = lang === "en" ? "Booked" : "Κλεισμένη"; }
+        if (k === todayKey) c.classList.add("today");
+        grid.appendChild(c);
+      }
+      box.append(h, grid); calMonths.appendChild(box);
+    }
+    calUpdated.textContent = updatedAt
+      ? (lang === "en" ? "Last updated: " : "Τελευταία ενημέρωση: ") +
+        updatedAt.toLocaleString(loc, { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })
+      : "";
+  }
+  if (calMonths) {
+    calPrev.addEventListener("click", () => { offset -= perView(); renderCalendar(); });
+    calNext.addEventListener("click", () => { offset += perView(); renderCalendar(); });
+    window.matchMedia("(max-width: 960px)").addEventListener("change", renderCalendar);
+    fetch("data/availability.json?t=" + Date.now(), { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (!j) return;
+        booked = Array.isArray(j.booked) ? j.booked : [];
+        updatedAt = j.updated ? new Date(j.updated) : null;
+        renderCalendar();
+      })
+      .catch(() => {});
+  }
+
   // ---------- Initial language ----------
   let saved = null;
   try { saved = localStorage.getItem("lang"); } catch (e) {}
   const initial = saved || ((navigator.language || "el").toLowerCase().startsWith("el") ? "el" : "en");
-  if (initial === "en") setLang("en"); else renderGallery();
+  if (initial === "en") setLang("en"); else { renderGallery(); renderCalendar(); }
 
   document.getElementById("year").textContent = new Date().getFullYear();
 })();

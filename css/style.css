@@ -116,13 +116,37 @@ h3 { font-size: 1.7rem; color: var(--sea-dark); }
 .ph:hover img { transform: scale(1.04); }
 .gallery > :first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
 
+/* ---------- Availability calendar ---------- */
+.cal-lead { max-width: 720px; color: var(--muted); }
+.cal { position: relative; background: var(--paper); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(15,40,42,.07); padding: 26px 28px 20px; margin-top: 28px; }
+.cal-nav { position: absolute; top: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; pointer-events: none; }
+.cal-btn { pointer-events: auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); color: var(--sea-dark); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.cal-btn:hover:not(:disabled) { border-color: var(--sea); background: var(--sea-light); }
+.cal-btn:disabled { opacity: .3; cursor: default; }
+.cal-months { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.cal-month h3 { text-align: center; font-size: 1.5rem; margin: 4px 0 14px; text-transform: capitalize; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.cal-grid .dow { font-size: .72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; padding-bottom: 6px; }
+.cal-grid .d { aspect-ratio: 1; display: grid; place-items: center; border-radius: 10px; font-size: .95rem; font-weight: 500; background: var(--sea-light); color: var(--sea-dark); }
+.cal-grid .d.booked { background: #f1ece4; color: #b3aa9b; text-decoration: line-through; }
+.cal-grid .d.past { background: transparent; color: #cfc8bb; text-decoration: none; }
+.cal-grid .d.today { box-shadow: inset 0 0 0 2px var(--bloom); }
+.cal-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.cal-legend { display: flex; gap: 22px; font-size: .9rem; }
+.cal-legend > span { display: inline-flex; align-items: center; gap: 8px; }
+.lg { width: 18px; height: 18px; border-radius: 5px; display: inline-block; }
+.lg-free { background: var(--sea-light); box-shadow: inset 0 0 0 1px #c9dfdf; }
+.lg-booked { background: #f1ece4; box-shadow: inset 0 0 0 1px #e2dacb; }
+.cal-updated { margin: 12px 0 0; font-size: .8rem; color: var(--muted); }
+.cal-updated:empty { display: none; }
+
 /* ---------- Location ---------- */
 .near { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.near li { display: flex; gap: 10px; align-items: center; background: var(--paper); padding: 13px 14px; border-radius: 12px; font-weight: 500; font-size: .95rem; }
+.near li { display: flex; gap: 10px; align-items: center; background: var(--sand); padding: 13px 14px; border-radius: 12px; font-weight: 500; font-size: .95rem; }
 .near li span:first-child { font-size: 1.3rem; }
 .map iframe { width: 100%; height: 380px; border: 0; border-radius: var(--radius); }
 .address { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  margin-top: 14px; padding: 18px 20px; background: var(--paper); border-radius: var(--radius); }
+  margin-top: 14px; padding: 18px 20px; background: var(--sand); border-radius: var(--radius); }
 .address div { display: flex; flex-direction: column; }
 .address b { font-family: var(--serif); font-size: 1.4rem; color: var(--sea-dark); }
 .address .coords { color: var(--muted); font-size: .85rem; }
@@ -174,6 +198,7 @@ h3 { font-size: 1.7rem; color: var(--sea-dark); }
   .stats span { font-size: .72rem; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
   .gallery > :first-child { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/9; }
+  .cal-months { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .nav { padding: 10px 16px; }
@@ -183,5 +208,7 @@ h3 { font-size: 1.7rem; color: var(--sea-dark); }
   .stats div:nth-child(3) { border-right: 0; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .near, .contact-cards { grid-template-columns: 1fr; }
+  .cal { padding: 20px 14px 16px; }
+  .cal-nav { top: 14px; left: 10px; right: 10px; }
   .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; }
 }

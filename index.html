@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261121b">
+  <link rel="stylesheet" href="css/style.css?v=20261121c">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231f6f78'/><path d='M7 19c3-2 6-2 9 0s6 2 9 0' stroke='%23fff' stroke-width='2.2' fill='none' stroke-linecap='round'/><circle cx='16' cy='11' r='3.2' fill='%23c2337a'/></svg>">
 </head>
 <body>
@@ -25,6 +25,7 @@
     <a href="#about" data-i18n="nav.about">Η βίλα</a>
     <a href="#spaces" data-i18n="nav.spaces">Χώροι</a>
     <a href="#gallery" data-i18n="nav.gallery">Φωτογραφίες</a>
+    <a href="#availability" data-i18n="nav.availability">Διαθεσιμότητα</a>
     <a href="#location" data-i18n="nav.location">Τοποθεσία</a>
     <a href="#contact" data-i18n="nav.contact">Επικοινωνία</a>
   </nav>
@@ -136,7 +137,30 @@
   </div>
 </section>
 
-<section class="section alt" id="location">
+<section class="section alt" id="availability">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="cal.eyebrow">Διαθεσιμότητα</p>
+    <h2 data-i18n="cal.title">Πότε είναι ελεύθερη η βίλα</h2>
+    <p class="cal-lead" data-i18n="cal.lead">Το ημερολόγιο ενημερώνεται αυτόματα από το Airbnb. Για τελική επιβεβαίωση και κράτηση, δείτε τις ημερομηνίες σας στο Airbnb.</p>
+    <div class="cal" id="calendar">
+      <div class="cal-nav">
+        <button type="button" class="cal-btn" id="calPrev" aria-label="‹">‹</button>
+        <button type="button" class="cal-btn" id="calNext" aria-label="›">›</button>
+      </div>
+      <div class="cal-months" id="calMonths"></div>
+      <div class="cal-foot">
+        <div class="cal-legend">
+          <span><i class="lg lg-free"></i><span data-i18n="cal.free">Διαθέσιμη</span></span>
+          <span><i class="lg lg-booked"></i><span data-i18n="cal.booked">Κλεισμένη</span></span>
+        </div>
+        <a class="btn btn-small airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cal.book">Κράτηση στο Airbnb</a>
+      </div>
+      <p class="cal-updated" id="calUpdated"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="location">
   <div class="wrap two-col">
     <div>
       <p class="eyebrow" data-i18n="loc.eyebrow">Τοποθεσία</p>
@@ -196,7 +220,7 @@
   <button class="lb-btn lb-next" type="button" aria-label="Επόμενη">›</button>
 </div>
 
-<script src="js/config.js?v=20261121b"></script>
-<script src="js/main.js?v=20261121b"></script>
+<script src="js/config.js?v=20261121c"></script>
+<script src="js/main.js?v=20261121c"></script>
 </body>
 </html>
