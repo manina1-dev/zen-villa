@@ -46,8 +46,8 @@
     "near.3": "Olympic Rowing Centre", "near.4": "Athens and the sights of Attica",
     "loc.address": "Faidras 11, Schinias, 19007 Attica, Greece", "loc.directions": "Get directions",
     "contact.eyebrow": "Booking & contact", "contact.title": "Ask us anything!",
-    "contact.lead": "To book or for any question, contact us directly – send us a WhatsApp message, an email or give us a call. We'll get back to you as soon as possible.",
-    "cta.book.direct": "Booking & contact", "air.k": "You can also find us on", "air.l": "See the listing →",
+    "contact.lead": "To book or for any question, contact us directly – send us a WhatsApp message, an email or give us a call. If you prefer, you can also book through Airbnb.",
+    "cta.book.direct": "Booking & contact", "air.k": "Prefer Airbnb? You can book there too", "air.l": "Book on Airbnb →", "cta.airbnb": "Book on Airbnb",
     "footer.addr": "Faidras 11, Schinias, 19007 Attica, Greece",
     "nav.availability": "Availability",
     "nav.place": "Schinias, Attica",
@@ -61,7 +61,7 @@
     "quote": "Slow mornings in the shade of the mulberry tree, swims in the pool and long dinners under the lanterns.",
     "loc.big": "Schinias",
     "cal.eyebrow": "Availability", "cal.title": "When the villa is free",
-    "cal.lead": "This calendar updates automatically. Found free dates? Send us a message and we'll book them for you.",
+    "cal.lead": "This calendar updates automatically. Found free dates? Send us a message and we'll book them for you, or book on Airbnb.",
     "cal.free": "Available", "cal.booked": "Booked", "cal.book": "Ask about your dates",
   };
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zen Villa Schinias · Ιδιωτική βίλα με πισίνα στον Σχινιά</title>
-  <meta name="description" content="Ευρύχωρη ιδιωτική βίλα δύο επιπέδων στον Σχινιά, για έως 12 άτομα, με 5 υπνοδωμάτια, 3 μπάνια, ιδιωτική πισίνα και καταπράσινο κήπο. Pet friendly. Κρατήσεις απευθείας μέσω WhatsApp, email ή τηλεφώνου.">
+  <meta name="description" content="Ευρύχωρη ιδιωτική βίλα δύο επιπέδων στον Σχινιά, για έως 12 άτομα, με 5 υπνοδωμάτια, 3 μπάνια, ιδιωτική πισίνα και καταπράσινο κήπο. Pet friendly. Κρατήσεις απευθείας μέσω WhatsApp, email, τηλεφώνου ή μέσω Airbnb.">
   <meta property="og:title" content="Zen Villa Schinias">
   <meta property="og:description" content="Ιδιωτική βίλα στον Σχινιά · 5 υπνοδωμάτια · έως 12 άτομα · ιδιωτική πισίνα · pet friendly">
   <meta property="og:image" content="https://www.zenvilla.gr/images/hero.jpg">
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261122b">
+  <link rel="stylesheet" href="css/style.css?v=20261122c">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23272727'/><text x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23fff' text-anchor='middle'>Z</text></svg>">
 </head>
 <body>
@@ -46,7 +46,10 @@
     <a href="#location" data-i18n="nav.location">Τοποθεσία</a>
     <a href="#contact" data-i18n="nav.contact">Επικοινωνία</a>
   </nav>
-  <a class="btn-line menu-book" href="#contact" data-i18n="cta.book.direct">Κράτηση & επικοινωνία</a>
+  <div class="menu-actions">
+    <a class="btn-line menu-book" href="#contact" data-i18n="cta.book.direct">Κράτηση & επικοινωνία</a>
+    <a class="btn-line airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.airbnb">Κράτηση στο Airbnb</a>
+  </div>
 </div>
 
 <section class="hero">
@@ -155,7 +158,7 @@
   <div class="wrap">
     <p class="kicker reveal" data-i18n="cal.eyebrow">Διαθεσιμότητα</p>
     <h2 class="reveal" data-i18n="cal.title">Πότε είναι ελεύθερη η βίλα</h2>
-    <p class="cal-lead reveal" data-i18n="cal.lead">Το ημερολόγιο ενημερώνεται αυτόματα. Βρήκατε ελεύθερες ημερομηνίες; Στείλτε μας μήνυμα για να τις κλείσουμε για εσάς.</p>
+    <p class="cal-lead reveal" data-i18n="cal.lead">Το ημερολόγιο ενημερώνεται αυτόματα. Βρήκατε ελεύθερες ημερομηνίες; Στείλτε μας μήνυμα για να τις κλείσουμε για εσάς ή κάντε κράτηση στο Airbnb.</p>
     <div class="cal reveal" id="calendar">
       <div class="cal-nav">
         <button type="button" class="cal-btn" id="calPrev" aria-label="‹">←</button>
@@ -167,7 +170,10 @@
           <span><i class="lg lg-free"></i><span data-i18n="cal.free">Διαθέσιμη</span></span>
           <span><i class="lg lg-booked"></i><span data-i18n="cal.booked">Κλεισμένη</span></span>
         </div>
-        <a class="btn-dark wa-book" href="#contact" target="_blank" rel="noopener" data-i18n="cal.book">Ρωτήστε για τις ημερομηνίες σας</a>
+        <div class="cal-actions">
+          <a class="btn-dark wa-book" href="#contact" target="_blank" rel="noopener" data-i18n="cal.book">Ρωτήστε για τις ημερομηνίες σας</a>
+          <a class="btn-line airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.airbnb">Κράτηση στο Airbnb</a>
+        </div>
       </div>
       <p class="cal-updated" id="calUpdated"></p>
     </div>
@@ -202,11 +208,12 @@
   <div class="wrap center contact-inner">
     <p class="kicker reveal" data-i18n="contact.eyebrow">Κράτηση & επικοινωνία</p>
     <h2 class="reveal" data-i18n="contact.title">Ρωτήστε μας ό,τι θέλετε!</h2>
-    <p class="reveal contact-lead" data-i18n="contact.lead">Για κράτηση ή για οποιαδήποτε ερώτηση, επικοινωνήστε απευθείας μαζί μας – στείλτε μας μήνυμα στο WhatsApp, email ή πάρτε μας τηλέφωνο. Θα σας απαντήσουμε το συντομότερο.</p>
+    <p class="reveal contact-lead" data-i18n="contact.lead">Για κράτηση ή για οποιαδήποτε ερώτηση, επικοινωνήστε απευθείας μαζί μας – στείλτε μας μήνυμα στο WhatsApp, email ή πάρτε μας τηλέφωνο. Αν προτιμάτε, μπορείτε να κάνετε κράτηση και μέσω Airbnb.</p>
     <div class="contact-actions reveal">
       <a class="btn-dark wa-book" href="#" target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn-line contact-email" href="#"><span>Email</span></a>
       <a class="btn-line contact-phone" href="#"><span data-i18n="cta.call">Τηλέφωνο</span></a>
+      <a class="btn-line btn-airbnb airbnb-link" href="#" target="_blank" rel="noopener"><span data-i18n="cta.airbnb">Κράτηση στο Airbnb</span></a>
     </div>
     <div class="contact-rows reveal">
       <a class="contact-phone" href="#"><small data-i18n="cta.call">Τηλέφωνο</small><span class="phone-num"></span></a>
@@ -215,8 +222,8 @@
     </div>
     <a class="airbnb-badge airbnb-link reveal" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 1.5c-1.6 0-2.8 1-3.8 2.9L4.9 18.9c-.9 1.8-1.3 3.1-1.3 4.3 0 3.9 3 7 6.8 7 2.2 0 4-1 5.6-2.8 1.6 1.8 3.4 2.8 5.6 2.8 3.8 0 6.8-3.1 6.8-7 0-1.2-.4-2.5-1.3-4.3L19.8 4.4c-1-1.9-2.2-2.9-3.8-2.9Zm0 22.2c-1.4-1.8-2.4-3.6-2.4-5.1 0-1.4.9-2.3 2.4-2.3s2.4.9 2.4 2.3c0 1.5-1 3.3-2.4 5.1Zm5.6 4.3c-1.5 0-2.8-.8-4.2-2.3 1.9-2.4 3.1-4.7 3.1-7 0-2.6-1.9-4.4-4.5-4.4s-4.5 1.8-4.5 4.4c0 2.3 1.2 4.6 3.1 7-1.4 1.5-2.7 2.3-4.2 2.3-2.6 0-4.7-2.1-4.7-4.8 0-.9.3-1.9 1-3.4l7.3-14.5c.7-1.3 1.3-1.8 2-1.8s1.3.5 2 1.8l7.3 14.5c.7 1.5 1 2.5 1 3.4 0 2.7-2.1 4.8-4.7 4.8Z"/></svg>
-      <span><small data-i18n="air.k">Θα μας βρείτε και στο</small><b>Airbnb</b></span>
-      <em data-i18n="air.l">Δείτε την αγγελία →</em>
+      <span><small data-i18n="air.k">Προτιμάτε το Airbnb; Κλείστε και από εκεί</small><b>Airbnb</b></span>
+      <em data-i18n="air.l">Κράτηση στο Airbnb →</em>
     </a>
   </div>
 </section>
@@ -238,7 +245,7 @@
   <button class="lb-btn lb-next" type="button" aria-label="Επόμενη">→</button>
 </div>
 
-<script src="js/config.js?v=20261122b"></script>
-<script src="js/main.js?v=20261122b"></script>
+<script src="js/config.js?v=20261122c"></script>
+<script src="js/main.js?v=20261122c"></script>
 </body>
 </html>

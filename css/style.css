@@ -286,3 +286,6 @@ p { margin: 0 0 1em; }
 .airbnb-badge em { font-style: normal; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--soft); margin-left: 8px; }
 .contact-actions .btn-line span { pointer-events: none; }
 @media (max-width: 600px) { .airbnb-badge em { display: none; } }
+.cal-actions, .menu-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.btn-airbnb { border-color: #ff5a5f; color: #ff5a5f; }
+.btn-airbnb:hover { background: #ff5a5f; color: #fff; border-color: #ff5a5f; }
