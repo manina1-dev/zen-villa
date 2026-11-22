@@ -1,0 +1,18 @@
+name: DNS check (temporary)
+on: workflow_dispatch
+jobs:
+  dns:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sudo apt-get -qq install -y dnsutils >/dev/null 2>&1 || true
+          for r in 8.8.8.8 1.1.1.1 9.9.9.9; do
+            echo "=== resolver $r"
+            for n in zenvilla.gr www.zenvilla.gr; do
+              for t in NS A AAAA CNAME CAA; do echo "$n $t: $(dig +short @$r $n $t | tr '\n' ' ')"; done
+            done
+          done
+          echo "=== authoritative (.gr registry -> NS)"
+          dig +norecurse +short NS zenvilla.gr @$(dig +short NS gr. | head -1) || true
+          dig +trace zenvilla.gr A | tail -15
+          for ns in dns3.easy.gr dns4.easy.gr; do echo "=== @$ns"; dig +short @$ns zenvilla.gr A; dig +short @$ns zenvilla.gr AAAA; dig +short @$ns www.zenvilla.gr CNAME; done
