@@ -18,15 +18,27 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261121h">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%231f6f78'/><path d='M7 19c3-2 6-2 9 0s6 2 9 0' stroke='%23fff' stroke-width='2.2' fill='none' stroke-linecap='round'/><circle cx='16' cy='11' r='3.2' fill='%23c2337a'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261122a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23272727'/><text x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23fff' text-anchor='middle'>Z</text></svg>">
 </head>
 <body>
 
 <header class="nav" id="top">
-  <a class="brand" href="#top">Zen Villa <span>Schinias</span></a>
-  <nav class="links" aria-label="Κύριο μενού">
+  <div class="nav-left">
+    <button class="burger" id="menuOpen" type="button" aria-label="Menu"><span></span><span></span></button>
+    <span class="nav-place" data-i18n="nav.place">Σχινιάς, Αττική</span>
+  </div>
+  <a class="brand" href="#top"><span class="brand-name">Zen Villa</span><span class="brand-sub">Schinias</span></a>
+  <div class="nav-right">
+    <button class="lang" id="langToggle" type="button" aria-label="Change language">EN</button>
+    <a class="book-link airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.book">Κράτηση</a>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <button class="menu-close" id="menuClose" type="button" aria-label="Κλείσιμο">×</button>
+  <nav class="menu-links">
     <a href="#about" data-i18n="nav.about">Η βίλα</a>
     <a href="#spaces" data-i18n="nav.spaces">Χώροι</a>
     <a href="#gallery" data-i18n="nav.gallery">Φωτογραφίες</a>
@@ -34,106 +46,103 @@
     <a href="#location" data-i18n="nav.location">Τοποθεσία</a>
     <a href="#contact" data-i18n="nav.contact">Επικοινωνία</a>
   </nav>
-  <div class="nav-actions">
-    <button class="lang" id="langToggle" type="button" aria-label="Change language">EN</button>
-    <a class="btn btn-small airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.book">Κράτηση</a>
-  </div>
-</header>
+  <a class="btn-line airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.book.airbnb">Κράτηση στο Airbnb</a>
+</div>
 
 <section class="hero">
   <div class="hero-bg" style="background-image:url('images/hero.jpg')"></div>
   <div class="hero-inner">
-    <p class="eyebrow" data-i18n="hero.eyebrow">Σχινιάς · Αττική</p>
-    <h1>Zen Villa</h1>
-    <p class="lead" data-i18n="hero.lead">Ιδιωτική βίλα με πισίνα και καταπράσινο κήπο, λίγα βήματα από τον Εθνικό Δρυμό και τις παραλίες του Σχινιά.</p>
-    <div class="hero-cta">
-      <a class="btn airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.checkAvailability">Διαθεσιμότητα & κράτηση</a>
-      <a class="btn btn-ghost" href="#about" data-i18n="cta.more">Γνωρίστε τη βίλα</a>
-    </div>
+    <p class="hero-kicker" data-i18n="hero.eyebrow">Σχινιάς · Αττική</p>
+    <h1 data-i18n="hero.title">Η δική σας βίλα στον Σχινιά</h1>
+  </div>
+  <a class="scroll-cue" href="#about" aria-label="Scroll"><span></span></a>
+</section>
+
+<section class="intro" id="about">
+  <div class="wrap intro-grid">
+    <h2 class="reveal" data-i18n="about.title">Ολόκληρη η βίλα, μόνο για εσάς</h2>
+    <p class="intro-side reveal" data-delay="1" data-i18n="about.p1">Η Zen Villa είναι μια ευρύχωρη ιδιωτική βίλα δύο επιπέδων στον Σχινιά, που ενοικιάζεται αποκλειστικά ολόκληρη, ιδανική για οικογένειες και παρέες έως 12 ατόμων.</p>
+  </div>
+  <figure class="bleed-right reveal-img"><img src="images/gallery/garden-17.jpg" alt="Η πισίνα το βράδυ" loading="lazy"></figure>
+  <div class="wrap narrow">
+    <p class="lead-text reveal" data-i18n="about.p2">Στους δύο ορόφους της θα βρείτε 5 υπνοδωμάτια και 3 μπάνια. Στο ισόγειο, μια πολύ μεγάλη σκεπαστή βεράντα ανοίγει προς τον κήπο – το ιδανικό σημείο για καλοκαιρινά δείπνα και χαλάρωση στη σκιά.</p>
+    <p class="lead-text reveal" data-i18n="about.p3">Οι επισκέπτες απολαμβάνουν την ιδιωτική πισίνα με χώρο ηλιοθεραπείας και έναν καταπράσινο κήπο γεμάτο σκιερά δέντρα και μεσογειακά αρωματικά φυτά.</p>
+    <p class="lead-text reveal" data-i18n="about.p4">Φιλοξενεί έως 12 άτομα (10 στα υπνοδωμάτια και 2 σε χώρο ύπνου στο σαλόνι).</p>
+    <p class="pets-note reveal" data-i18n="about.p5">Pet friendly – τα τετράποδα μέλη της οικογένειας είναι κάτι παραπάνω από ευπρόσδεκτα!</p>
+  </div>
+  <div class="collage">
+    <figure class="col-big reveal-img"><img src="images/gallery/garden-04.jpg" alt="Ο κήπος και η πισίνα από την αιώρα" loading="lazy"></figure>
+    <figure class="col-small reveal-img" data-delay="2"><img src="images/aerial.jpg" alt="Η Zen Villa από ψηλά" loading="lazy"></figure>
+  </div>
+  <div class="stats reveal">
+    <div><b>12</b><span data-i18n="stat.guests">άτομα</span></div>
+    <div><b>5</b><span data-i18n="stat.bedrooms">υπνοδωμάτια</span></div>
+    <div><b>3</b><span data-i18n="stat.baths">μπάνια</span></div>
+    <div><b>1</b><span data-i18n="stat.pool">ιδιωτική πισίνα</span></div>
   </div>
 </section>
 
-<div class="stats">
-  <div><b>12</b><span data-i18n="stat.guests">άτομα</span></div>
-  <div><b>5</b><span data-i18n="stat.bedrooms">υπνοδωμάτια</span></div>
-  <div><b>3</b><span data-i18n="stat.baths">μπάνια</span></div>
-  <div><b>2</b><span data-i18n="stat.floors">επίπεδα</span></div>
-  <div><b class="paw">🐾</b><span data-i18n="stat.pets">pet friendly</span></div>
-</div>
-
-<section class="section" id="about">
-  <div class="wrap two-col">
-    <div>
-      <p class="eyebrow" data-i18n="about.eyebrow">Καλώς ήρθατε</p>
-      <h2 data-i18n="about.title">Ολόκληρη η βίλα, μόνο για εσάς</h2>
-      <p data-i18n="about.p1">Η Zen Villa είναι μια ευρύχωρη ιδιωτική βίλα δύο επιπέδων στον Σχινιά, που ενοικιάζεται αποκλειστικά ολόκληρη, ιδανική για οικογένειες και παρέες έως 12 ατόμων.</p>
-      <p data-i18n="about.p2">Στους δύο ορόφους της θα βρείτε 5 υπνοδωμάτια και 3 μπάνια. Στο ισόγειο, μια πολύ μεγάλη σκεπαστή βεράντα ανοίγει προς τον κήπο – το ιδανικό σημείο για καλοκαιρινά δείπνα και χαλάρωση στη σκιά.</p>
-      <p data-i18n="about.p3">Οι επισκέπτες απολαμβάνουν την ιδιωτική πισίνα με χώρο ηλιοθεραπείας και έναν καταπράσινο κήπο γεμάτο σκιερά δέντρα και μεσογειακά αρωματικά φυτά.</p>
-      <p data-i18n="about.p4">Φιλοξενεί έως 12 άτομα (10 στα υπνοδωμάτια και 2 σε χώρο ύπνου στο σαλόνι).</p>
-      <p class="pets-note" data-i18n="about.p5">Pet friendly – τα τετράποδα μέλη της οικογένειας είναι κάτι παραπάνω από ευπρόσδεκτα!</p>
-    </div>
-    <div class="about-pics">
-      <img class="pic-a" src="images/aerial.jpg" alt="Η Zen Villa από ψηλά, με την πισίνα και τον κήπο" loading="lazy">
-      <img class="pic-b" src="images/villa-view.jpg" alt="Η βίλα με τις βουκαμβίλιες" loading="lazy">
-    </div>
+<section class="spaces-sec" id="spaces">
+  <p class="center small-lead reveal" data-i18n="spaces.lead">Δύο όροφοι, ένας κήπος, μία πισίνα.</p>
+  <div class="cards">
+    <article class="card reveal" data-open="ground">
+      <div class="card-img"><img src="images/gallery/ground-01.jpg" alt="" loading="lazy"></div>
+      <div class="card-over"><span class="card-no">01</span><h3 data-i18n="sp.ground.t">Ισόγειο</h3></div>
+      <ul class="card-list">
+        <li data-i18n="sp.ground.1">Σαλόνι με τζάκι και τηλεόραση</li>
+        <li data-i18n="sp.ground.2">Κουζίνα με μπαρ φαγητού</li>
+        <li data-i18n="sp.ground.3">Κύριο υπνοδωμάτιο με ιδιωτικό μπάνιο</li>
+        <li data-i18n="sp.ground.4">Υπνοδωμάτιο 2 (τα κρεβάτια ενώνονται) & μπάνιο 2</li>
+        <li data-i18n="sp.ground.5">Καναπές-κρεβάτι για 2 στο σαλόνι</li>
+      </ul>
+      <button class="btn-line" type="button" data-open="ground" data-i18n="sp.more">Φωτογραφίες</button>
+    </article>
+    <article class="card reveal" data-delay="1" data-open="garden">
+      <div class="card-img"><img src="images/gallery/garden-05.jpg" alt="" loading="lazy"></div>
+      <div class="card-over"><span class="card-no">02</span><h3 data-i18n="sp.garden.t">Κήπος & πισίνα</h3></div>
+      <ul class="card-list">
+        <li data-i18n="sp.garden.1">Ιδιωτική πισίνα με χώρο ηλιοθεραπείας</li>
+        <li data-i18n="sp.garden.2">Πολύ μεγάλη σκεπαστή βεράντα</li>
+        <li data-i18n="sp.garden.3">Υπαίθρια τραπεζαρία κάτω από τη μουριά</li>
+        <li data-i18n="sp.garden.4">Αιώρα και πέργκολα δίπλα στην πισίνα</li>
+        <li data-i18n="sp.garden.5">Σκιερά δέντρα και μεσογειακά αρωματικά φυτά</li>
+      </ul>
+      <button class="btn-line" type="button" data-open="garden" data-i18n="sp.more">Φωτογραφίες</button>
+    </article>
+    <article class="card reveal" data-delay="2" data-open="first">
+      <div class="card-img"><img src="images/gallery/first-01.jpg" alt="" loading="lazy"></div>
+      <div class="card-over"><span class="card-no">03</span><h3 data-i18n="sp.first.t">Πρώτος όροφος</h3></div>
+      <ul class="card-list">
+        <li data-i18n="sp.first.1">Υπνοδωμάτιο 3 με μπαλκόνι προς τον κήπο</li>
+        <li data-i18n="sp.first.2">Υπνοδωμάτια 4 και 5</li>
+        <li data-i18n="sp.first.3">Δύο κρεβάτια σε κάθε υπνοδωμάτιο</li>
+        <li data-i18n="sp.first.4">Μπάνιο 3 με ντουζιέρα και μπανιέρα</li>
+      </ul>
+      <button class="btn-line" type="button" data-open="first" data-i18n="sp.more">Φωτογραφίες</button>
+    </article>
   </div>
 </section>
 
-<section class="section alt" id="spaces">
+<section class="band">
+  <div class="band-bg" style="background-image:url('images/gallery/garden-19.jpg')"></div>
+  <span class="band-circle reveal"></span>
+  <nav class="band-links">
+    <a href="#gallery" class="reveal"><small data-i18n="band.k1">φωτογραφίες</small><span data-i18n="band.l1">Μια ματιά στη βίλα</span></a>
+    <a href="#availability" class="reveal" data-delay="1"><small data-i18n="band.k2">ημερολόγιο</small><span data-i18n="band.l2">Διαθεσιμότητα</span></a>
+    <a href="#location" class="reveal" data-delay="2"><small data-i18n="band.k3">περιοχή</small><span data-i18n="band.l3">Τι θα βρείτε κοντά</span></a>
+  </nav>
+</section>
+
+<section class="quote-sec">
+  <figure class="quote-img reveal-img"><img src="images/gallery/garden-15.jpg" alt="Βράδυ στην πισίνα" loading="lazy"></figure>
+  <blockquote class="quote reveal" data-delay="1" data-i18n="quote">Αργά πρωινά στη σκιά της μουριάς, βουτιές στην πισίνα και βραδινά τραπέζια κάτω από τα φανάρια.</blockquote>
+</section>
+
+<section class="gallery-sec" id="gallery">
   <div class="wrap">
-    <p class="eyebrow" data-i18n="spaces.eyebrow">Οι χώροι</p>
-    <h2 data-i18n="spaces.title">Δύο όροφοι, ένας κήπος, μία πισίνα</h2>
-    <div class="spaces">
-      <article class="space">
-        <button class="space-img" type="button" data-open="ground"><img src="images/gallery/thumbs/ground-01.jpg" alt="" loading="lazy"></button>
-        <div class="space-body">
-          <h3 data-i18n="sp.ground.t">Ισόγειο</h3>
-          <ul>
-            <li data-i18n="sp.ground.1">Σαλόνι με τζάκι και τηλεόραση</li>
-            <li data-i18n="sp.ground.2">Κουζίνα με μπαρ φαγητού</li>
-            <li data-i18n="sp.ground.3">Κύριο υπνοδωμάτιο με ιδιωτικό μπάνιο</li>
-            <li data-i18n="sp.ground.4">Υπνοδωμάτιο 2 (τα κρεβάτια ενώνονται) & μπάνιο 2</li>
-            <li data-i18n="sp.ground.5">Καναπές-κρεβάτι για 2 στο σαλόνι</li>
-          </ul>
-          <button class="link-btn" type="button" data-open="ground" data-i18n="sp.see.ground">Δείτε το ισόγειο →</button>
-        </div>
-      </article>
-      <article class="space">
-        <button class="space-img" type="button" data-open="garden"><img src="images/gallery/thumbs/garden-05.jpg" alt="" loading="lazy"></button>
-        <div class="space-body">
-          <h3 data-i18n="sp.garden.t">Κήπος & πισίνα</h3>
-          <ul>
-            <li data-i18n="sp.garden.1">Ιδιωτική πισίνα με χώρο ηλιοθεραπείας</li>
-            <li data-i18n="sp.garden.2">Πολύ μεγάλη σκεπαστή βεράντα</li>
-            <li data-i18n="sp.garden.3">Υπαίθρια τραπεζαρία κάτω από τη μουριά</li>
-            <li data-i18n="sp.garden.4">Αιώρα και πέργκολα δίπλα στην πισίνα</li>
-            <li data-i18n="sp.garden.5">Σκιερά δέντρα και μεσογειακά αρωματικά φυτά</li>
-          </ul>
-          <button class="link-btn" type="button" data-open="garden" data-i18n="sp.see.garden">Δείτε τον κήπο & την πισίνα →</button>
-        </div>
-      </article>
-      <article class="space">
-        <button class="space-img" type="button" data-open="first"><img src="images/gallery/thumbs/first-01.jpg" alt="" loading="lazy"></button>
-        <div class="space-body">
-          <h3 data-i18n="sp.first.t">Πρώτος όροφος</h3>
-          <ul>
-            <li data-i18n="sp.first.1">Υπνοδωμάτιο 3 με μπαλκόνι προς τον κήπο</li>
-            <li data-i18n="sp.first.2">Υπνοδωμάτια 4 και 5</li>
-            <li data-i18n="sp.first.3">Δύο κρεβάτια σε κάθε υπνοδωμάτιο</li>
-            <li data-i18n="sp.first.4">Μπάνιο 3 με ντουζιέρα και μπανιέρα</li>
-          </ul>
-          <button class="link-btn" type="button" data-open="first" data-i18n="sp.see.first">Δείτε τον πρώτο όροφο →</button>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="gallery">
-  <div class="wrap">
-    <p class="eyebrow" data-i18n="gallery.eyebrow">Φωτογραφίες</p>
-    <h2 data-i18n="gallery.title">Μια ματιά στη Zen Villa</h2>
-    <div class="tabs" role="tablist">
+    <p class="kicker reveal" data-i18n="gallery.eyebrow">Φωτογραφίες</p>
+    <h2 class="reveal" data-i18n="gallery.title">Μια ματιά στη Zen Villa</h2>
+    <div class="tabs reveal" role="tablist">
       <button type="button" role="tab" data-tab="garden" data-i18n="tab.garden">Κήπος & πισίνα</button>
       <button type="button" role="tab" data-tab="ground" data-i18n="tab.ground">Ισόγειο</button>
       <button type="button" role="tab" data-tab="first" data-i18n="tab.first">Πρώτος όροφος</button>
@@ -142,15 +151,15 @@
   </div>
 </section>
 
-<section class="section alt" id="availability">
+<section class="cal-sec" id="availability">
   <div class="wrap">
-    <p class="eyebrow" data-i18n="cal.eyebrow">Διαθεσιμότητα</p>
-    <h2 data-i18n="cal.title">Πότε είναι ελεύθερη η βίλα</h2>
-    <p class="cal-lead" data-i18n="cal.lead">Το ημερολόγιο ενημερώνεται αυτόματα από το Airbnb. Για τελική επιβεβαίωση και κράτηση, δείτε τις ημερομηνίες σας στο Airbnb.</p>
-    <div class="cal" id="calendar">
+    <p class="kicker reveal" data-i18n="cal.eyebrow">Διαθεσιμότητα</p>
+    <h2 class="reveal" data-i18n="cal.title">Πότε είναι ελεύθερη η βίλα</h2>
+    <p class="cal-lead reveal" data-i18n="cal.lead">Το ημερολόγιο ενημερώνεται αυτόματα από το Airbnb. Για τελική επιβεβαίωση και κράτηση, δείτε τις ημερομηνίες σας στο Airbnb.</p>
+    <div class="cal reveal" id="calendar">
       <div class="cal-nav">
-        <button type="button" class="cal-btn" id="calPrev" aria-label="‹">‹</button>
-        <button type="button" class="cal-btn" id="calNext" aria-label="›">›</button>
+        <button type="button" class="cal-btn" id="calPrev" aria-label="‹">←</button>
+        <button type="button" class="cal-btn" id="calNext" aria-label="›">→</button>
       </div>
       <div class="cal-months" id="calMonths"></div>
       <div class="cal-foot">
@@ -158,74 +167,72 @@
           <span><i class="lg lg-free"></i><span data-i18n="cal.free">Διαθέσιμη</span></span>
           <span><i class="lg lg-booked"></i><span data-i18n="cal.booked">Κλεισμένη</span></span>
         </div>
-        <a class="btn btn-small airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cal.book">Κράτηση στο Airbnb</a>
+        <a class="btn-dark airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cal.book">Κράτηση στο Airbnb</a>
       </div>
       <p class="cal-updated" id="calUpdated"></p>
     </div>
   </div>
 </section>
 
-<section class="section" id="location">
-  <div class="wrap two-col">
-    <div>
-      <p class="eyebrow" data-i18n="loc.eyebrow">Τοποθεσία</p>
-      <h2 data-i18n="loc.title">Ησυχία, θάλασσα και φύση</h2>
-      <p data-i18n="loc.p1">Η βίλα βρίσκεται σε μια ήσυχη γειτονιά, σε απόσταση περπατήματος από τον Εθνικό Δρυμό του Σχινιά, το Ολυμπιακό Κωπηλατοδρόμιο και μερικές από τις καλύτερες παραλίες της Αττικής.</p>
-      <p data-i18n="loc.p2">Είναι το ιδανικό μέρος για να χαλαρώσετε στις διακοπές σας ή για να το κάνετε βάση και να εξερευνήσετε τα αξιοθέατα της Αθήνας και της γύρω περιοχής.</p>
-      <ul class="near">
-        <li><span>🌲</span><span data-i18n="near.1">Εθνικός Δρυμός Σχινιά</span></li>
-        <li><span>🏖</span><span data-i18n="near.2">Παραλίες του Σχινιά</span></li>
-        <li><span>🚣</span><span data-i18n="near.3">Ολυμπιακό Κωπηλατοδρόμιο</span></li>
-        <li><span>🏛</span><span data-i18n="near.4">Αθήνα και αξιοθέατα της Αττικής</span></li>
+<section class="loc-sec" id="location">
+  <h2 class="loc-title reveal" data-i18n="loc.big">Σχινιάς</h2>
+  <div class="loc-grid">
+    <figure class="loc-img reveal-img"><img src="images/villa-view.jpg" alt="Η Zen Villa με τις βουκαμβίλιες" loading="lazy"></figure>
+    <div class="loc-text">
+      <p class="loc-sub reveal" data-i18n="loc.title">Ησυχία, θάλασσα και φύση</p>
+      <p class="reveal" data-i18n="loc.p1">Η βίλα βρίσκεται σε μια ήσυχη γειτονιά, σε απόσταση περπατήματος από τον Εθνικό Δρυμό του Σχινιά, το Ολυμπιακό Κωπηλατοδρόμιο και μερικές από τις καλύτερες παραλίες της Αττικής.</p>
+      <p class="reveal" data-i18n="loc.p2">Είναι το ιδανικό μέρος για να χαλαρώσετε στις διακοπές σας ή για να το κάνετε βάση και να εξερευνήσετε τα αξιοθέατα της Αθήνας και της γύρω περιοχής.</p>
+      <ul class="near reveal">
+        <li data-i18n="near.1">Εθνικός Δρυμός Σχινιά</li>
+        <li data-i18n="near.2">Παραλίες του Σχινιά</li>
+        <li data-i18n="near.3">Ολυμπιακό Κωπηλατοδρόμιο</li>
+        <li data-i18n="near.4">Αθήνα και αξιοθέατα της Αττικής</li>
       </ul>
+      <a class="btn-line reveal" href="https://www.google.com/maps/dir/?api=1&destination=38.1436603,24.0092665" target="_blank" rel="noopener" data-i18n="loc.directions">Οδηγίες πλοήγησης</a>
     </div>
-    <div class="map">
-      <iframe title="Χάρτης: Zen Villa Schinias" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=38.1436603,24.0092665&z=15&output=embed"></iframe>
-      <div class="address">
-        <div>
-          <b>Zen Villa Schinias</b>
-          <span data-i18n="loc.address">Φαίδρας 11, Σχινιάς, 190 07 Αττική</span>
-          <span class="coords">GPS: 38.14366, 24.00927</span>
-        </div>
-        <a class="btn btn-small" href="https://www.google.com/maps/dir/?api=1&destination=38.1436603,24.0092665" target="_blank" rel="noopener" data-i18n="loc.directions">Οδηγίες πλοήγησης</a>
-      </div>
-    </div>
+  </div>
+  <div class="wrap map reveal">
+    <iframe title="Χάρτης: Zen Villa Schinias" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=38.1436603,24.0092665&z=15&output=embed"></iframe>
+    <p class="address"><b>Zen Villa Schinias</b> · <span data-i18n="loc.address">Φαίδρας 11, Σχινιάς, 190 07 Αττική</span></p>
   </div>
 </section>
 
-<section class="section book" id="contact">
-  <div class="book-bg"></div>
-  <div class="wrap center">
-    <p class="eyebrow" data-i18n="contact.eyebrow">Κράτηση & επικοινωνία</p>
-    <h2 data-i18n="contact.title">Ρωτήστε μας ό,τι θέλετε!</h2>
-    <p data-i18n="contact.lead">Δείτε τις διαθέσιμες ημερομηνίες και κάντε κράτηση με ασφάλεια μέσω Airbnb. Για οποιαδήποτε ερώτηση, είμαστε εδώ – στείλτε μας μήνυμα στο WhatsApp, email ή πάρτε μας τηλέφωνο.</p>
-    <div class="hero-cta">
-      <a class="btn airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.book.airbnb">Διαθεσιμότητα & κράτηση στο Airbnb</a>
-      <a class="btn btn-whatsapp contact-whatsapp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2Z"/></svg><span>WhatsApp</span></a>
+<section class="contact-sec" id="contact">
+  <div class="contact-bg"></div>
+  <div class="wrap center contact-inner">
+    <p class="kicker reveal" data-i18n="contact.eyebrow">Κράτηση & επικοινωνία</p>
+    <h2 class="reveal" data-i18n="contact.title">Ρωτήστε μας ό,τι θέλετε!</h2>
+    <p class="reveal contact-lead" data-i18n="contact.lead">Δείτε τις διαθέσιμες ημερομηνίες και κάντε κράτηση με ασφάλεια μέσω Airbnb. Για οποιαδήποτε ερώτηση, είμαστε εδώ – στείλτε μας μήνυμα στο WhatsApp, email ή πάρτε μας τηλέφωνο.</p>
+    <div class="contact-actions reveal">
+      <a class="btn-dark airbnb-link" href="#" target="_blank" rel="noopener" data-i18n="cta.book.airbnb">Κράτηση στο Airbnb</a>
+      <a class="btn-line contact-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
     </div>
-    <div class="contact-cards">
-      <a class="ccard contact-phone" href="#"><span class="ccard-ico">📞</span><span class="ccard-label" data-i18n="cta.call">Τηλέφωνο</span><b class="phone-num"></b></a>
-      <a class="ccard contact-email" href="#"><span class="ccard-ico">✉️</span><span class="ccard-label">Email</span><b class="email-addr"></b></a>
-      <a class="ccard instagram-link" href="#" target="_blank" rel="noopener"><span class="ccard-ico ig"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 4.6a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4Zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8Zm5.4-9.9a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg></span><span class="ccard-label">Instagram</span><b>@zenvillaschinias</b></a>
+    <div class="contact-rows reveal">
+      <a class="contact-phone" href="#"><small data-i18n="cta.call">Τηλέφωνο</small><span class="phone-num"></span></a>
+      <a class="contact-email" href="#"><small>Email</small><span class="email-addr"></span></a>
+      <a class="instagram-link" href="#" target="_blank" rel="noopener"><small>Instagram</small><span>@zenvillaschinias</span></a>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <p>© <span id="year"></span> Zen Villa Schinias · <span data-i18n="footer.addr">Φαίδρας 11, Σχινιάς, 190 07 Αττική</span></p>
+  <div class="footer-mark"><span>Zen Villa</span></div>
+  <div class="footer-row">
+    <p>© <span id="year"></span> Zen Villa Schinias · <span data-i18n="footer.addr">Φαίδρας 11, Σχινιάς, 190 07 Αττική</span></p>
+    <p class="social"><a class="instagram-link" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 4.6a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4Zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8Zm5.4-9.9a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg></a><a class="contact-whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2Z"/></svg></a></p>
+  </div>
 </footer>
 
 <a class="wa-float contact-whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2Z"/></svg></a>
 
 <div class="lightbox" id="lightbox" hidden>
   <button class="lb-btn lb-close" type="button" aria-label="Κλείσιμο">×</button>
-  <button class="lb-btn lb-prev" type="button" aria-label="Προηγούμενη">‹</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Προηγούμενη">←</button>
   <figure><img alt=""><figcaption></figcaption></figure>
-  <button class="lb-btn lb-next" type="button" aria-label="Επόμενη">›</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Επόμενη">→</button>
 </div>
 
-<script src="js/config.js?v=20261121h"></script>
-<script src="js/main.js?v=20261121h"></script>
+<script src="js/config.js?v=20261122a"></script>
+<script src="js/main.js?v=20261122a"></script>
 </body>
 </html>

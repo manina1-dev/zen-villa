@@ -49,6 +49,16 @@
     "contact.lead": "See available dates and book securely through Airbnb. We're here to answer any question you have – send us a WhatsApp message, an email or give us a call.",
     "footer.addr": "Faidras 11, Schinias, 19007 Attica, Greece",
     "nav.availability": "Availability",
+    "nav.place": "Schinias, Attica",
+    "hero.title": "Your own villa in Schinias",
+    "stat.pool": "private pool",
+    "spaces.lead": "Two floors, one garden, one pool.",
+    "sp.more": "Photos",
+    "band.k1": "photos", "band.l1": "A look around the villa",
+    "band.k2": "calendar", "band.l2": "Availability",
+    "band.k3": "the area", "band.l3": "What's nearby",
+    "quote": "Slow mornings in the shade of the mulberry tree, swims in the pool and long dinners under the lanterns.",
+    "loc.big": "Schinias",
     "cal.eyebrow": "Availability", "cal.title": "When the villa is free",
     "cal.lead": "This calendar updates automatically from Airbnb. To confirm and book, check your dates on Airbnb.",
     "cal.free": "Available", "cal.booked": "Booked", "cal.book": "Book on Airbnb",
@@ -118,7 +128,9 @@
       img.src = thumb(p); img.alt = cap(p) || "Zen Villa"; img.loading = "lazy";
       b.appendChild(img);
       b.addEventListener("click", () => openLb(i));
+      b.style.transitionDelay = (i % 4) * 0.08 + "s";
       grid.appendChild(b);
+      if (window.__revealObs) window.__revealObs.observe(b); else b.classList.add("in");
     });
   }
   function selectGroup(g, scroll) {
@@ -217,6 +229,43 @@
         renderCalendar();
       })
       .catch(() => {});
+  }
+
+
+  // ---------- Header on scroll, menu overlay ----------
+  const nav = document.getElementById("top");
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 60);
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const menu = document.getElementById("menu");
+  function openMenu() { menu.hidden = false; requestAnimationFrame(() => menu.classList.add("open")); document.body.style.overflow = "hidden"; }
+  function closeMenu() { menu.classList.remove("open"); document.body.style.overflow = ""; setTimeout(() => { menu.hidden = true; }, 350); }
+  document.getElementById("menuOpen").addEventListener("click", openMenu);
+  document.getElementById("menuClose").addEventListener("click", closeMenu);
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) closeMenu(); });
+
+  // ---------- Reveal on scroll ----------
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); obs.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    window.__revealObs = obs;
+    document.querySelectorAll(".reveal, .reveal-img, .ph").forEach((el) => obs.observe(el));
+  } else {
+    document.querySelectorAll(".reveal, .reveal-img, .ph").forEach((el) => el.classList.add("in"));
+  }
+
+  // ---------- Gentle parallax on the band ----------
+  const bandBg = document.querySelector(".band-bg");
+  if (bandBg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const band = bandBg.parentElement;
+    const par = () => {
+      const r = band.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      const t = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      bandBg.style.transform = "translateY(" + (t * -60).toFixed(1) + "px)";
+    };
+    window.addEventListener("scroll", par, { passive: true }); par();
   }
 
   // ---------- Initial language ----------
