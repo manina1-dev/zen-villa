@@ -50,6 +50,7 @@
     "cta.book.direct": "Booking & contact", "air.k": "Prefer Airbnb? You can book there too", "air.l": "Book on Airbnb →", "cta.airbnb": "Book on Airbnb",
     "footer.addr": "Faidras 11, Schinias, 19007 Attica, Greece",
     "nav.availability": "Availability",
+    "footer.ama": "Reg. no. (AMA)",
     "nav.exp": "Experiences",
     "band.k1": "experiences",
     "band.l1": "A day at the villa",
